@@ -1,0 +1,198 @@
+
+
+
+78K0R Linker W1.80                            Date: 7 Jan 2020 Page:   1
+
+Command:   -yC:\Program Files (x86)\Renesas Electronics\CS+\CACX\Device\
+           RL78\Devicefile -_msgoff -oDefaultBuild\Blinking LED.lmf -gi0
+           0000000000000000000h -go84h,1FE00h,512 -gb6E7BF8H -mi0 -s -pD
+           efaultBuild\Blinking LED.map C:\Program Files (x86)\Renesas E
+           lectronics\CS+\CACX\CA78K0R\V1.72\lib78k0r\s0rll.rel DefaultB
+           uild\main.rel DefaultBuild\timer.rel DefaultBuild\serial.rel 
+           DefaultBuild\spi.rel DefaultBuild\swspi.rel -bcl78m -bcl78mf 
+           -iC:\Program Files (x86)\Renesas Electronics\CS+\CACX\CA78K0R
+           \V1.72\lib78k0r
+Para-file:
+Out-file:  DefaultBuild\Blinking LED.lmf
+Map-file:  DefaultBuild\Blinking LED.map
+Direc-file:
+Directive:
+
+
+*** Link information ***
+
+    32 output segment(s)
+  B06H byte(s) real data
+   707 symbol(s) defined
+
+
+*** Memory map ***
+
+
+  SPACE=REGULAR
+
+  MEMORY=ROM
+  BASE ADDRESS=00000H   SIZE=10000H
+         OUTPUT   INPUT    INPUT      BASE      SIZE
+         SEGMENT  SEGMENT  MODULE     ADDRESS
+         @@VECT00                     00000H    00002H  CSEG AT
+                  @@VECT00 @cstart    00000H    00002H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  @cstart    00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  main       00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  timer      00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  serial     00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  spi        00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  swspi      00002H    00000H
+         @@RLINIT                     00002H    00000H  CSEG UNIT64KP
+                  @@RLINIT @cstart    00002H    00000H
+                  @@RLINIT main       00002H    00000H
+                  @@RLINIT timer      00002H    00000H
+                  @@RLINIT serial     00002H    00000H
+                  @@RLINIT spi        00002H    00000H
+                  @@RLINIT swspi      00002H    00000H
+                  @@RLINIT @rom       00002H    00000H
+         @@R_INIS                     00002H    00000H  CSEG UNIT64KP
+                  @@R_INIS @cstart    00002H    00000H
+                  @@R_INIS main       00002H    00000H
+                  @@R_INIS timer      00002H    00000H
+                  @@R_INIS serial     00002H    00000H
+                  @@R_INIS spi        00002H    00000H
+                  @@R_INIS swspi      00002H    00000H
+                  @@R_INIS @rom       00002H    00000H
+         @@CALT                       00002H    00000H  CSEG
+                  @@CALT   @cstart    00002H    00000H
+                  @@CALT   main       00002H    00000H
+                  @@CALT   timer      00002H    00000H
+                  @@CALT   serial     00002H    00000H
+                  @@CALT   spi        00002H    00000H
+                  @@CALT   swspi      00002H    00000H
+         ??NMIROM                     00002H    00002H  CSEG
+* gap *                               00004H    00010H
+         @@VECT14                     00014H    00004H  CSEG AT
+                  @@VECT14 serial     00014H    00004H
+* gap *                               00018H    00014H
+         @@VECT2C                     0002CH    00008H  CSEG AT
+                  @@VECT2C timer      0002CH    00008H
+* gap *                               00034H    0008CH
+         ?CSEGOB0                     000C0H    00004H  CSEG OPT_BYTE
+         @@CODE                       000C4H    00000H  CSEG BASE
+                  @@CODE   main       000C4H    00000H
+                  @@CODE   timer      000C4H    00000H
+                  @@CODE   serial     000C4H    00000H
+                  @@CODE   spi        000C4H    00000H
+                  @@CODE   swspi      000C4H    00000H
+         ?CSEGSI                      000C4H    0000AH  CSEG
+         ?OCDSTAD                     000CEH    0000AH  CSEG
+         @@LCODE                      000D8H    000ADH  CSEG BASE
+                  @@LCODE  @cstart    000D8H    000ADH
+         @@BASE                       00185H    000E8H  CSEG BASE
+                  @@BASE   main       00185H    00000H
+                  @@BASE   timer      00185H    0003BH
+                  @@BASE   serial     001C0H    000ADH
+                  @@BASE   spi        0026DH    00000H
+                  @@BASE   swspi      0026DH    00000H
+* gap *                               0026DH    00001H
+         @@R_INIT                     0026EH    001E8H  CSEG UNIT64KP
+                  @@R_INIT @cstart    0026EH    00000H
+                  @@R_INIT main       0026EH    000FAH
+                  @@R_INIT timer      00368H    00004H
+                  @@R_INIT serial     0036CH    0000AH
+                  @@R_INIT spi        00376H    00000H
+                  @@R_INIT swspi      00376H    000E0H
+                  @@R_INIT @rom       00456H    00000H
+         @@CODEL                      00456H    006F9H  CSEG
+                  @@CODEL  main       00456H    004FFH
+                  @@CODEL  timer      00955H    00068H
+                  @@CODEL  serial     009BDH    00146H
+                  @@CODEL  spi        00B03H    0004CH
+                  @@CODEL  swspi      00B4FH    00000H
+         @@LCODEL                     00B4FH    00060H  CSEG
+                  @@LCODEL @stkinit   00B4FH    00044H
+                  @@LCODEL exit       00B93H    0001CH
+* gap *                               00BAFH    02451H
+         @@CNST                       03000H    00008H  CSEG MIRRORP
+                  @@CNST   @cstart    03000H    00000H
+                  @@CNST   main       03000H    00008H
+                  @@CNST   timer      03008H    00000H
+                  @@CNST   serial     03008H    00000H
+                  @@CNST   spi        03008H    00000H
+                  @@CNST   swspi      03008H    00000H
+* gap *                               03008H    0CFF8H
+
+  MEMORY=RAM
+  BASE ADDRESS=FDF00H   SIZE=02100H
+         OUTPUT   INPUT    INPUT      BASE      SIZE
+         SEGMENT  SEGMENT  MODULE     ADDRESS
+         @@DATA                       FDF00H    00228H  DSEG BASEP
+                  @@DATA   @cstart    FDF00H    000BAH
+                  @@DATA   main       FDFBAH    00064H
+                  @@DATA   timer      FE01EH    00000H
+                  @@DATA   serial     FE01EH    0010AH
+                  @@DATA   spi        FE128H    00000H
+                  @@DATA   swspi      FE128H    00000H
+                  @@DATA   @rom       FE128H    00000H
+         @@INIT                       FE128H    001E8H  DSEG BASEP
+                  @@INIT   @cstart    FE128H    00000H
+                  @@INIT   main       FE128H    000FAH
+                  @@INIT   timer      FE222H    00004H
+                  @@INIT   serial     FE226H    0000AH
+                  @@INIT   spi        FE230H    00000H
+                  @@INIT   swspi      FE230H    000E0H
+                  @@INIT   @rom       FE310H    00000H
+         @@INIS                       FE310H    00000H  DSEG UNITP
+                  @@INIS   @cstart    FE310H    00000H
+                  @@INIS   main       FE310H    00000H
+                  @@INIS   timer      FE310H    00000H
+                  @@INIS   serial     FE310H    00000H
+                  @@INIS   spi        FE310H    00000H
+                  @@INIS   swspi      FE310H    00000H
+                  @@INIS   @rom       FE310H    00000H
+         @@DATS                       FE310H    00000H  DSEG UNITP
+                  @@DATS   @cstart    FE310H    00000H
+                  @@DATS   main       FE310H    00000H
+                  @@DATS   timer      FE310H    00000H
+                  @@DATS   serial     FE310H    00000H
+                  @@DATS   spi        FE310H    00000H
+                  @@DATS   swspi      FE310H    00000H
+                  @@DATS   @rom       FE310H    00000H
+         @@INITL                      FE310H    00000H  DSEG UNIT64KP
+                  @@INITL  @cstart    FE310H    00000H
+                  @@INITL  main       FE310H    00000H
+                  @@INITL  timer      FE310H    00000H
+                  @@INITL  serial     FE310H    00000H
+                  @@INITL  spi        FE310H    00000H
+                  @@INITL  swspi      FE310H    00000H
+                  @@INITL  @rom       FE310H    00000H
+         @@DATAL                      FE310H    00000H  DSEG UNIT64KP
+                  @@DATAL  @cstart    FE310H    00000H
+                  @@DATAL  main       FE310H    00000H
+                  @@DATAL  timer      FE310H    00000H
+                  @@DATAL  serial     FE310H    00000H
+                  @@DATAL  spi        FE310H    00000H
+                  @@DATAL  swspi      FE310H    00000H
+                  @@DATAL  @rom       FE310H    00000H
+         @@BITS                       FE310H    00000H  BSEG
+                  @@BITS   @cstart    FE310H.0  00000H.0
+                  @@BITS   main       FE310H.0  00000H.0
+                  @@BITS   timer      FE310H.0  00000H.0
+                  @@BITS   serial     FE310H.0  00000H.0
+                  @@BITS   spi        FE310H.0  00000H.0
+                  @@BITS   swspi      FE310H.0  00000H.0
+* gap *                               FE310H    01BC4H
+         @@SEGREG                     FFED4H    00004H  DSEG AT
+                  @@SEGREG @SEGREG    FFED4H    00004H
+         @@RTARG0                     FFED8H    00008H  DSEG AT
+                  @@RTARG0 @RTARG0    FFED8H    00008H
+* gap *                               FFEE0H    00020H
+* gap (Not Free Area) *               FFF00H    00100H
+
+
+ Target chip : R7F0C014B
+ Device file : E1.00f
+
