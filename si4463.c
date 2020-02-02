@@ -194,3 +194,65 @@ void si446x_RX(uint8_t *data_revceive, uint8_t len)
 		}
 	}
 }
+
+uint8_t Si446x_TX(void* packet, uint8_t len, uint8_t channel, si446x_state_t onTxFinish)
+{
+	// TODO what happens if len is 0?
+
+#if SI446X_FIXED_LENGTH
+	// Stop the unused parameter warning
+	((void)(len));
+#endif
+
+	SI446X_NO_INTERRUPT()
+	{
+		if(getState() == SI446X_STATE_TX) // Already transmitting
+			return 0;
+
+		// TODO collision avoid or maybe just do collision detect (RSSI jump)
+
+		setState(IDLE_STATE);
+		clearFIFO();
+		interrupt2(NULL, 0, 0, 0xFF);
+
+		SI446X_ATOMIC()
+		{
+			// Load data to FIFO
+			CHIPSELECT()
+			{
+				spi_transfer_nr(SI446X_CMD_WRITE_TX_FIFO);
+#if !SI446X_FIXED_LENGTH
+				spi_transfer_nr(len);
+				for(uint8_t i=0;i<len;i++)
+					spi_transfer_nr(((uint8_t*)packet)[i]);
+#else
+				for(uint8_t i=0;i<SI446X_FIXED_LENGTH;i++)
+					spi_transfer_nr(((uint8_t*)packet)[i]);
+#endif
+			}
+		}
+
+#if !SI446X_FIXED_LENGTH
+		// Set packet length
+		setProperty(SI446X_PKT_FIELD_2_LENGTH_LOW, len);
+#endif
+
+		// Begin transmit
+		uint8_t data[] = {
+			SI446X_CMD_START_TX,
+			channel,
+			(uint8_t)(onTxFinish<<4),
+			0,
+			SI446X_FIXED_LENGTH,
+			0,
+			0
+		};
+		doAPI(data, sizeof(data), NULL, 0);
+
+#if !SI446X_FIXED_LENGTH
+		// Reset packet length back to max for receive mode
+		setProperty(SI446X_PKT_FIELD_2_LENGTH_LOW, MAX_PACKET_LEN);
+#endif
+	}
+	return 1;
+}
