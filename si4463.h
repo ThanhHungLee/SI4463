@@ -27,8 +27,8 @@ typedef enum
 
 void Si4463_init(void);
 void Si4463_setTxPower(uint8_t pwr);
-void si4463_TX(uint8_t *packet, uint8_t len);
-void si446x_RX(uint8_t *data_revceive, uint8_t len);
+uint8_t  si4463_TX(uint8_t *packet, uint8_t len,uint8_t channel, uint8_t onTxFinish);
+void si446x_RX(uint8_t *data_revceive, uint8_t len,uint8_t channel);
 
 
 #endif

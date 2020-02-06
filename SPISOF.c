@@ -40,6 +40,7 @@ void  send_byte(unsigned char data)
         data = data << 1;
     }
     clock(0);
+    MOSI = 1;
 
 }
 

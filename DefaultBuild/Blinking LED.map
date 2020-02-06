@@ -1,7 +1,7 @@
 
 
 
-78K0R Linker W1.80                            Date:17 Jan 2020 Page:   1
+78K0R Linker W1.80                            Date: 6 Feb 2020 Page:   1
 
 Command:   -yC:\Program Files (x86)\Renesas Electronics\CS+\CACX\Device_
            Custom\Devicefile -_msgoff -oDefaultBuild\Blinking LED.lmf -g
@@ -22,8 +22,8 @@ Directive:
 *** Link information ***
 
     32 output segment(s)
-  ADDH byte(s) real data
-   720 symbol(s) defined
+  AEDH byte(s) real data
+   745 symbol(s) defined
 
 
 *** Memory map ***
@@ -106,25 +106,25 @@ Directive:
                   @@BASE   serial     001D2H    000ADH
                   @@BASE   SPISOF     0027FH    00000H
                   @@BASE   si4463     0027FH    00000H
-         @@CODEL                      0027FH    0069AH  CSEG
-                  @@CODEL  main       0027FH    000B4H
-                  @@CODEL  timer      00333H    00068H
-                  @@CODEL  serial     0039BH    00146H
-                  @@CODEL  SPISOF     004E1H    0014EH
-                  @@CODEL  si4463     0062FH    002EAH
-         @@LCODEL                     00919H    0007AH  CSEG
-                  @@LCODEL @stkinit   00919H    00044H
-                  @@LCODEL exit       0095DH    0001CH
-                  @@LCODEL memcpy_n   00979H    0001AH
-* gap *                               00993H    0266DH
-         @@CNST                       03000H    001DCH  CSEG MIRRORP
+         @@CODEL                      0027FH    006BEH  CSEG
+                  @@CODEL  main       0027FH    000AEH
+                  @@CODEL  timer      0032DH    00068H
+                  @@CODEL  serial     00395H    00146H
+                  @@CODEL  SPISOF     004DBH    00151H
+                  @@CODEL  si4463     0062CH    00311H
+         @@LCODEL                     0093DH    0007AH  CSEG
+                  @@LCODEL @stkinit   0093DH    00044H
+                  @@LCODEL exit       00981H    0001CH
+                  @@LCODEL memcpy_n   0099DH    0001AH
+* gap *                               009B7H    02649H
+         @@CNST                       03000H    001C8H  CSEG MIRRORP
                   @@CNST   @cstart    03000H    00000H
-                  @@CNST   main       03000H    00006H
-                  @@CNST   timer      03006H    00000H
-                  @@CNST   serial     03006H    00000H
-                  @@CNST   SPISOF     03006H    00000H
-                  @@CNST   si4463     03006H    001D6H
-* gap *                               031DCH    0CE24H
+                  @@CNST   main       03000H    00000H
+                  @@CNST   timer      03000H    00000H
+                  @@CNST   serial     03000H    00000H
+                  @@CNST   SPISOF     03000H    00000H
+                  @@CNST   si4463     03000H    001C8H
+* gap *                               031C8H    0CE38H
 
   MEMORY=RAM
   BASE ADDRESS=FDF00H   SIZE=02100H

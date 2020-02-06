@@ -33,7 +33,7 @@ void PortInit(void)
 	PORT_MODE_nIRQ = 1;
 	ADPC = 1;
 	SCK = 0;
-	MOSI = 0;
+	MOSI = 1;
 	CS = 1;
 	SDN = 1;
 }
@@ -61,12 +61,12 @@ void main(void)
 	while (1)
 	{
 
-		if ((get_sys_tick() - tick_led) >= 100)
+ 		if ((get_sys_tick() - tick_led) >= 100)
 		{
 			
-			//si4463_TX(data,sizeof(data));
-			si446x_RX(b_data_RX,sizeof(b_data_RX));
-			R_UART2_Send(" here", 5);
+			si4463_TX(b_data_TX,sizeof(b_data_TX),0,SI446X_STATE_RX);
+			// si446x_RX(b_data_RX, sizeof(b_data_RX),0,SI446X_STATE_RX);
+			//R_UART2_Send(" here", 5);
 			P14 .7 ^= 1;//chop led
 			tick_led = get_sys_tick();
 		}
