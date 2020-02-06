@@ -251,11 +251,13 @@ void si446x_RX(uint8_t *data_revceive, uint8_t len,uint8_t channel)
 		}
 	}
 }
+
 // uint8_t Si446x_TX(void* packet, uint8_t len, uint8_t channel, si446x_state_t onTxFinish)
 // {
+// 	// TODO what happens if len is 0?
 
 // #if SI446X_FIXED_LENGTH
-
+// 	// Stop the unused parameter warning
 // 	((void)(len));
 // #endif
 
@@ -263,6 +265,9 @@ void si446x_RX(uint8_t *data_revceive, uint8_t len,uint8_t channel)
 // 	{
 // 		if(getState() == SI446X_STATE_TX) // Already transmitting
 // 			return 0;
+
+// 		// TODO collision avoid or maybe just do collision detect (RSSI jump)
+
 // 		setState(IDLE_STATE);
 // 		clearFIFO();
 // 		interrupt2(NULL, 0, 0, 0xFF);
