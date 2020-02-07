@@ -35,7 +35,7 @@ void PortInit(void)
 	SCK = 0;
 	MOSI = 1;
 	CS = 1;
-	SDN = 1;
+//	SDN = 1;
 }
 
 void hdwinit(void)
@@ -64,6 +64,7 @@ void main(void)
  		if ((get_sys_tick() - tick_led) >= 100)
 		{
 			
+		//	waitForResponse();
 			si4463_TX(b_data_TX,sizeof(b_data_TX),0,SI446X_STATE_RX);
 			// si446x_RX(b_data_RX, sizeof(b_data_RX),0,SI446X_STATE_RX);
 			//R_UART2_Send(" here", 5);

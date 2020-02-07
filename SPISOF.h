@@ -1,4 +1,4 @@
-#ifndef __SPISOF_H__
+ #ifndef __SPISOF_H__
 #define __SPISOF_H__
 
 #include"timer.h"
@@ -8,7 +8,7 @@
 #define SCK  P1.2  // c SCK
 #define MOSI  P1.1 //  MOSI
 #define CS   P1.7  //  CS
-#define MISO  P2.1 //  MISO 
+#define MISO  PM2.1 //  MISO 
 #define SDN   P7.0
 #define nIRQ P3.0
 #define GPIO1 P3.1
@@ -56,7 +56,7 @@ Global functions
 //                     0x24, 0x00, 0x81,0x89, 0xA0, 0x00, 0xA1, 0x0C, 
 //                     0xA2, 0xFF, 0x91, 0xBF, 0xC0, 0x00, 0x8F, 0x00,
 //                     0x8D, 0x00, 0x92, 0xFF, 0x81, 0x8D, 0x42, 0x00};
-static uint8_t waitForResponse();
+// uint8_t waitForResponse();
  void delay_us(uint32_t idx);
 void clock(uint8_t bitdata);
 void send_byte(unsigned char data);

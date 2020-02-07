@@ -3,7 +3,7 @@
 #include "string.h"
 #include "user_def.h"
 static const uint8_t config[] = RADIO_CONFIGURATION_DATA_ARRAY;
-static uint8_t waitForResponse();
+ uint8_t waitForResponse();
 static void applyStartupConfig(void);
 static void doAPI(uint8_t *data, uint8_t len, void *out, uint8_t outLen);
 static void radio_reset();
@@ -13,7 +13,7 @@ static void setProperty(uint16_t prop, uint8_t value);
 
 void Si4463_init(void)
 {
-	radio_reset();
+	//radio_reset();
 	applyStartupConfig();
 }
 static void applyStartupConfig(void)
@@ -36,7 +36,7 @@ static void radio_reset()
 	SDN = 0;
 	delay_us(7000);
 }
-static uint8_t waitForResponse()
+ uint8_t waitForResponse()
 {
 	uint8_t b_CTSValue = 0;
 	uint16_t cntErr = 0;
@@ -48,10 +48,18 @@ static uint8_t waitForResponse()
 		
 		if (b_CTSValue != 0xFF)
 		{
+			cntErr++;
 			CS = 1;
 		}
+		if(cntErr == 2500 )
+		{
+			return 0;
+			delay_us(1000);
+		}
+		
 	}
-	//delay_us(10);
+	CS = 1;
+	delay_us(10);
 	return 1;
 }
 static void doAPI(uint8_t *data, uint8_t len, void *out, uint8_t outLen)
@@ -59,7 +67,7 @@ static void doAPI(uint8_t *data, uint8_t len, void *out, uint8_t outLen)
 	uint8_t i = 0;
 	if (waitForResponse()) // Make sure it's ok to send a command
 	{
-
+        //delay_us(10);
 		CS = 0;
 		for (i = 0; i < len; i++)
 		{
@@ -205,16 +213,15 @@ uint8_t  si4463_TX(uint8_t *packet,uint8_t channel, uint8_t len,uint8_t onTxFini
 	return 0;
 	setState();
 	clearFIFO();
+	if(waitForResponse()){
 	get_int_status();
-	
-	if (waitForResponse())
-	{
-		
+}
+			
 		doAPI(retrieve_byte, sizeof(retrieve_byte), NULL, 0);
 		delay_us(10);
 		Writedatatobuffer(packet, len);
 		doAPI(Start_tx, sizeof(Start_tx), NULL, 0);
-	}
+	
 }
 void si446x_RX(uint8_t *data_revceive, uint8_t len,uint8_t channel)
 {

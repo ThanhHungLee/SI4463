@@ -24,7 +24,7 @@ typedef enum
 //
 // Developed by Alexander Sholohov <ra9yer@yahoo.com>
 //
-
+ uint8_t waitForResponse();
 void Si4463_init(void);
 void Si4463_setTxPower(uint8_t pwr);
 uint8_t  si4463_TX(uint8_t *packet, uint8_t len,uint8_t channel, uint8_t onTxFinish);
