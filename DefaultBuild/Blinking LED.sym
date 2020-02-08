@@ -69,7 +69,7 @@
 02FDFBA_data
 01005EE_delay_us
 02FDF96_errno
-0100991_exit
+010098A_exit
 02FDFD4_g_uart2_rx_count
 02FDFD6_g_uart2_rx_length
 02FDFD0_g_uart2_tx_count
@@ -79,8 +79,8 @@
 01002B1_hdwinit
 02FE0DC_i
 01002C4_main
-01009AD_memcpy
-01009AD_memcpy_n
+01009A6_memcpy
+01009A6_memcpy_n
 0100555_receiver_byte
 0100586_receiver_mulbyte
 01004E2_send_byte
@@ -91,8 +91,8 @@
 02FE0EC_serial_rx_length
 02FE0F0_serial_rx_timeout_cplt
 0100856_si4463_TX
-01008DF_si446x_RX
-010094D_stkinit
+01008D8_si446x_RX
+0100946_stkinit
 02FE0E4_sys_tick
 010032A_timer_init
 0100691_waitForResponse
@@ -119,13 +119,13 @@
 ;FF     SPISOF
 <02FE0F2_tick
 ;FF     si4463
-<01031B8L0043
-01031BCL0050
-01031C0L0059
+<0103159L0043
+010315DL0050
+0103161L0059
 010080F_Writedatatobuffer
 010062D_applyStartupConfig
 01007CF_clearFIFO
-01031BA_clearFifo
+010315B_clearFifo
 0103000_config
 01006D6_doAPI
 0100760_getFRR

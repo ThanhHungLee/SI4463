@@ -151,7 +151,7 @@ static void setState()
 {
 	uint8_t data[] = {
 		SI446X_CMD_CHANGE_STATE,
-		0x03};
+		0x01};
 	doAPI(data, sizeof(data), NULL, 0);
 	delay_us(10);
 }
@@ -195,7 +195,7 @@ static void Writedatatobuffer(uint8_t *data, uint8_t len)
 	delay_us(10);
 }
 
-uint8_t  si4463_TX(uint8_t *packet,uint8_t channel, uint8_t len,uint8_t onTxFinish)
+uint8_t  si4463_TX(uint8_t *packet,  uint8_t len,uint8_t channel,uint8_t onTxFinish)
 {
 	uint8_t retrieve_byte[] = {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF};
 	//uint8_t Start_tx[] = {0x31, 0x00, 0x80, 0x00, 0x00, 0x00, 0x00};
@@ -213,9 +213,8 @@ uint8_t  si4463_TX(uint8_t *packet,uint8_t channel, uint8_t len,uint8_t onTxFini
 	return 0;
 	setState();
 	clearFIFO();
-	if(waitForResponse()){
 	get_int_status();
-}
+
 			
 		doAPI(retrieve_byte, sizeof(retrieve_byte), NULL, 0);
 		delay_us(10);

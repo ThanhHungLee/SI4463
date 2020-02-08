@@ -1,7 +1,7 @@
 
 
 
-78K0R Linker W1.80                            Date: 7 Feb 2020 Page:   1
+78K0R Linker W1.80                            Date: 8 Feb 2020 Page:   1
 
 Command:   -yC:\Program Files (x86)\Renesas Electronics\CS+\CACX\Device_
            Custom\Devicefile -_msgoff -oDefaultBuild\Blinking LED.lmf -g
@@ -22,8 +22,8 @@ Directive:
 *** Link information ***
 
     32 output segment(s)
-  AFDH byte(s) real data
-   749 symbol(s) defined
+  A98H byte(s) real data
+   745 symbol(s) defined
 
 
 *** Memory map ***
@@ -106,25 +106,25 @@ Directive:
                   @@BASE   serial     001D2H    000ADH
                   @@BASE   SPISOF     0027FH    00000H
                   @@BASE   si4463     0027FH    00000H
-         @@CODEL                      0027FH    006CEH  CSEG
+         @@CODEL                      0027FH    006C7H  CSEG
                   @@CODEL  main       0027FH    000ABH
                   @@CODEL  timer      0032AH    00068H
                   @@CODEL  serial     00392H    00146H
                   @@CODEL  SPISOF     004D8H    00151H
-                  @@CODEL  si4463     00629H    00324H
-         @@LCODEL                     0094DH    0007AH  CSEG
-                  @@LCODEL @stkinit   0094DH    00044H
-                  @@LCODEL exit       00991H    0001CH
-                  @@LCODEL memcpy_n   009ADH    0001AH
-* gap *                               009C7H    02639H
-         @@CNST                       03000H    001C8H  CSEG MIRRORP
+                  @@CODEL  si4463     00629H    0031DH
+         @@LCODEL                     00946H    0007AH  CSEG
+                  @@LCODEL @stkinit   00946H    00044H
+                  @@LCODEL exit       0098AH    0001CH
+                  @@LCODEL memcpy_n   009A6H    0001AH
+* gap *                               009C0H    02640H
+         @@CNST                       03000H    0016AH  CSEG MIRRORP
                   @@CNST   @cstart    03000H    00000H
                   @@CNST   main       03000H    00000H
                   @@CNST   timer      03000H    00000H
                   @@CNST   serial     03000H    00000H
                   @@CNST   SPISOF     03000H    00000H
-                  @@CNST   si4463     03000H    001C8H
-* gap *                               031C8H    0CE38H
+                  @@CNST   si4463     03000H    0016AH
+* gap *                               0316AH    0CE96H
 
   MEMORY=RAM
   BASE ADDRESS=FDF00H   SIZE=02100H
